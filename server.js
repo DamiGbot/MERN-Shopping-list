@@ -8,7 +8,7 @@ const items = require("./routes/api/items");
 require("dotenv").config({ path: path.join(__dirname, "config", ".env") });
 
 const app = express();
-const DB = process.env.DATABASE.replace("<password>", process.env.PASSWORD);
+const DB = process.env.DATABASE;
 const PORT = process.env.PORT || 5000;
 console.log(DB);
 
