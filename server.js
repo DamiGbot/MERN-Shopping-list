@@ -8,8 +8,9 @@ const items = require("./routes/api/items");
 require("dotenv").config({ path: path.join(__dirname, "config", ".env") });
 
 const app = express();
-const MONGO_URI = process.env.MONGO_URI;
+const DB = process.env.DATABASE.replace("<password>", process.env.PASSWORD);
 const PORT = process.env.PORT || 5000;
+console.log(DB);
 
 //Bodyparser Middleware
 app.use(bodyParser.json());
@@ -23,7 +24,7 @@ main()
 	});
 
 async function main() {
-	await mongoose.connect(MONGO_URI);
+	await mongoose.connect(DB);
 }
 
 //Use Routes
